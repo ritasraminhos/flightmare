@@ -28,6 +28,9 @@ Matrix<3, 3> QuadState::R() const {
 void QuadState::setZero() {
   t = 0.0;
   x.setZero();
+  x(POSX) = 101;
+  x(POSY) = 86;
+  x(POSZ) = 31;
   x(ATTW) = 1.0;
 }
 

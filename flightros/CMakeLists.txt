@@ -6,7 +6,7 @@ find_package(catkin_simple REQUIRED)
 
 find_package(OpenCV REQUIRED)
 
-option(BUILD_MP "Build Motion Planning" OFF)
+option(BUILD_MP "Build Motion Planning" ON)
 
 catkin_simple()
 

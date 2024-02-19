@@ -136,7 +136,7 @@ bool UnityBridge::setScene(const SceneID& scene_id) {
     logger_.warn("Scene ID is not defined, cannot set scene.");
     return false;
   }
-  // logger_.info("Scene ID is set to %d.", scene_id);
+  logger_.info("Scene ID is set to %d.", scene_id);
   settings_.scene_id = scene_id;
   return true;
 }
@@ -198,7 +198,7 @@ bool UnityBridge::addStaticObject(std::shared_ptr<StaticObject> static_object) {
   return true;
 }
 
-bool UnityBridge::handleOutput() {
+int UnityBridge::handleOutput() {
   // create new message object
   zmqpp::message msg;
   sub_.receive(msg);
@@ -271,7 +271,7 @@ bool UnityBridge::handleOutput() {
       }
     }
   }
-  return true;
+  return sub_msg.frame_id;
 }
 
 bool UnityBridge::getPointCloud(PointCloudMessage_t& pointcloud_msg,
